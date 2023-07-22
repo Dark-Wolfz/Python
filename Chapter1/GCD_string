@@ -1,0 +1,14 @@
+class Solution(object):
+    def gcdOfStrings(self, str1, str2):
+      if len(str1)<=len(str2):
+         a=str1
+      else:
+         a=str2
+      b=len(a)
+      c=1
+      d=[""]
+      while c<=b:
+         if b%c==0 and a[:c] * (len(str1)//c)==str1 and a[:c]*(len(str2)//c)==str2:
+            d.append(a[:c])
+         c+=1
+      return d[-1]  
