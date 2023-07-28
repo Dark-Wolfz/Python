@@ -16,3 +16,27 @@ class Solution(object):
                 right = b-1
                 left += 1
         return a
+
+# Another solution
+class Solution(object):
+    def twoSum(self, nums, target):
+        a = []
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in nums and nums.index(complement) != i:
+                a.append(i)
+                a.append(nums.index(complement))
+                return a
+        return a
+# Using dictionary
+class Solution(object):
+    def twoSum(self, nums, target):
+        num_to_index = {}
+
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in num_to_index:
+                return [num_to_index[complement], i]
+            num_to_index[num] = i
+
+        return []
